@@ -354,33 +354,76 @@
             gap: 20px;
         }
 
-        .dest-card { position: relative; border-radius: var(--radius); overflow: hidden; cursor: pointer; }
+        .dest-card {
+            position: relative; border-radius: var(--radius);
+            overflow: hidden; cursor: pointer;
+            box-shadow: 0 4px 32px rgba(4,12,26,.18);
+            transition: box-shadow .5s ease, transform .5s ease;
+        }
+        .dest-card:hover { box-shadow: 0 16px 56px rgba(4,12,26,.38); transform: translateY(-4px); }
         .dest-card:first-child { grid-column: span 2; grid-row: span 2; }
-        .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+        .dest-card img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 1s cubic-bezier(.25,.46,.45,.94), filter .7s ease;
+            filter: brightness(.88) saturate(1.08);
+        }
         .dest-card:first-child img { height: 500px; }
         .dest-card:not(:first-child) img { height: 235px; }
-        .dest-card:hover img { transform: scale(1.07); }
+        .dest-card:hover img { transform: scale(1.09); filter: brightness(.78) saturate(1.12); }
 
         .dest-ov {
             position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(11,35,64,.9) 0%, rgba(11,35,64,.18) 60%, transparent 100%);
+            background: linear-gradient(
+                to top,
+                rgba(4,12,26,.96) 0%,
+                rgba(4,12,26,.52) 38%,
+                rgba(4,12,26,.16) 62%,
+                transparent 100%
+            );
             display: flex; flex-direction: column; justify-content: flex-end; padding: 28px;
-            transition: var(--ease);
+            transition: background .6s ease;
         }
-        .dest-card:hover .dest-ov { background: linear-gradient(to top, rgba(11,35,64,.95) 0%, rgba(11,35,64,.38) 60%, rgba(11,35,64,.08) 100%); }
+        .dest-card:hover .dest-ov {
+            background: linear-gradient(
+                to top,
+                rgba(4,12,26,.98) 0%,
+                rgba(4,12,26,.7) 46%,
+                rgba(4,12,26,.3) 72%,
+                rgba(4,12,26,.05) 100%
+            );
+        }
 
-        .dest-cat { font-family: 'Poppins',sans-serif; font-size: .7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--dourado); margin-bottom: 5px; }
-        .dest-name { font-family: 'Poppins',sans-serif; font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .dest-cat {
+            font-family: 'Poppins',sans-serif; font-size: .62rem; font-weight: 700;
+            letter-spacing: 3px; text-transform: uppercase; color: var(--dourado);
+            margin-bottom: 6px;
+            transition: transform .4s ease, letter-spacing .4s ease;
+        }
+        .dest-card:hover .dest-cat { transform: translateY(-2px); letter-spacing: 4px; }
+
+        .dest-name {
+            font-family: 'Poppins',sans-serif; font-size: 1.45rem; font-weight: 700;
+            color: #fff; line-height: 1.15; margin-bottom: 0;
+            transition: transform .4s ease;
+        }
         .dest-card:not(:first-child) .dest-name { font-size: 1.1rem; }
-        .dest-desc { font-size: .84rem; color: rgba(255,255,255,.68); margin-bottom: 14px; display: none; }
-        .dest-card:hover .dest-desc { display: block; }
+        .dest-card:hover .dest-name { transform: translateY(-3px); }
+
+        .dest-desc {
+            font-size: .82rem; color: rgba(255,255,255,.7); line-height: 1.6;
+            max-height: 0; overflow: hidden; opacity: 0; margin-top: 0;
+            transition: max-height .45s ease, opacity .4s ease .06s, margin-top .35s ease;
+        }
+        .dest-card:hover .dest-desc { max-height: 60px; opacity: 1; margin-top: 8px; }
 
         .dest-btn {
-            display: inline-flex; align-items: center; gap: 5px;
+            display: inline-flex; align-items: center; gap: 6px;
             background: var(--dourado); color: var(--azul);
-            font-family: 'Poppins',sans-serif; font-size: .78rem; font-weight: 600;
-            padding: 7px 16px; border-radius: 100px;
-            opacity: 0; transform: translateY(8px); transition: var(--ease);
+            font-family: 'Poppins',sans-serif; font-size: .76rem; font-weight: 700;
+            padding: 9px 20px; border-radius: 100px; letter-spacing: .2px;
+            opacity: 0; transform: translateY(12px);
+            transition: opacity .32s ease .1s, transform .38s ease .1s, background .2s ease;
+            margin-top: 14px;
         }
         .dest-card:hover .dest-btn { opacity: 1; transform: none; }
         .dest-btn:hover { background: var(--dourado-esc); }
@@ -1022,7 +1065,7 @@
         <div class="dest-grid fade">
             <!-- Principal: Lua de Mel -->
             <div class="dest-card">
-                <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=900&q=80" alt="Maldivas" loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1520342868574-5fa3804e551c?w=1200&q=90" alt="Lua de Mel — Maldivas" loading="lazy" decoding="async">
                 <div class="dest-ov">
                     <span class="dest-cat">Romantismo</span>
                     <h3 class="dest-name">Lua de Mel</h3>
@@ -1035,7 +1078,7 @@
             </div>
             <!-- Disney -->
             <div class="dest-card">
-                <img src="https://images.unsplash.com/photo-1611457194403-d3aca4cf9d11?w=600&q=80" alt="Disney" loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1569360671584-adc5e8c6d79c?w=600&q=90" alt="Disney" loading="lazy" decoding="async">
                 <div class="dest-ov">
                     <span class="dest-cat">Família</span>
                     <h3 class="dest-name">Disney</h3>
@@ -1045,7 +1088,7 @@
             </div>
             <!-- Europa -->
             <div class="dest-card">
-                <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80" alt="Europa" loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=90" alt="Europa — Paris" loading="lazy" decoding="async">
                 <div class="dest-ov">
                     <span class="dest-cat">Cultura</span>
                     <h3 class="dest-name">Europa</h3>
@@ -1065,7 +1108,7 @@
             </div>
             <!-- Resorts -->
             <div class="dest-card">
-                <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=80" alt="Resorts" loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=90" alt="Resort de luxo" loading="lazy" decoding="async">
                 <div class="dest-ov">
                     <span class="dest-cat">Relaxamento</span>
                     <h3 class="dest-name">Resorts</h3>
@@ -1085,7 +1128,7 @@
             </div>
             <!-- Maldivas -->
             <div class="dest-card">
-                <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=600&q=80" alt="Maldivas" loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=90" alt="Maldivas" loading="lazy" decoding="async">
                 <div class="dest-ov">
                     <span class="dest-cat">Paraíso</span>
                     <h3 class="dest-name">Maldivas</h3>
@@ -1105,7 +1148,7 @@
             </div>
             <!-- Caribe -->
             <div class="dest-card">
-                <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=600&q=80" alt="Caribe" loading="lazy" decoding="async">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=90" alt="Caribe" loading="lazy" decoding="async">
                 <div class="dest-ov">
                     <span class="dest-cat">Praias</span>
                     <h3 class="dest-name">Caribe</h3>
