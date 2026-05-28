@@ -453,17 +453,17 @@
         .proc-steps {
             display: grid;
             grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
-            align-items: start;
+            align-items: stretch;
             gap: 0;
         }
         .proc-line { display: none; }
         .proc-arrow {
             display: flex; align-items: center; justify-content: center;
-            padding: 0 6px; margin-top: 36px;
+            padding: 0 6px; align-self: center;
         }
         .proc-arrow svg { color: rgba(245,197,66,.55); width: 22px; height: 22px; }
 
-        .proc-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 14px; position: relative; }
+        .proc-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 14px; position: relative; height: 100%; }
 
         .proc-num {
             width: 80px; height: 80px;
